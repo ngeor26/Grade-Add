@@ -21,7 +21,7 @@ app.get('/:collection/:document/:subject/:grade', (req, res) => {
     const grade = req.params.grade
     let obj = {}
     obj[subject] = grade
-    database.set(obj)
+    database.set(obj, { merge: true })
     return res.status(200).send(response)
 })
 
